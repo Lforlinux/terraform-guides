@@ -4,13 +4,14 @@ pipeline {
     parameters{
         string(name:'TFE_ORG', defaultValue: '', description: 'Terra-org')
         string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
+        string(name:'TFE_workspace', defaultValue: '', description: 'TFE_workspace')
     }
     stages {
         stage('load and run work space'){
             steps{
                   sh(
                       '''
-                      ./loadAndRunWorkspace.sh "" "" yes
+                      sh 'export TOKEN=${TFE_TOKEN} && bash ./loadAndRunWorkspace.sh {TFE_workspace} app.terraform.io'
         
                       '''  
                   )
