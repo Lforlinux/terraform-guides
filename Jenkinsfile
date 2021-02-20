@@ -5,7 +5,8 @@ pipeline {
         string(name:'TFE_ORG', defaultValue: '', description: 'tfe organization name')
         string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
         string(name:'TFE_WORKSPACE', defaultValue: '', description: 'desired workspace name')
-        string(name:'TFE_OVERRIDE', defaultValue: '', description: 'default is no, choose yes to apply')
+        string(name:'TFE_OVERRIDE', defaultValue: '', description: 'default is no, choose yes to apply') 
+        string(name:'TFE_DELETE', defaultValue: '', description: 'default is no, choose yes to apply')
     }
     stages {
         stage('load and run work space'){
@@ -19,33 +20,15 @@ pipeline {
             }
 
         }
-        stage('Terraform init'){
+        stage('destroy workspace'){
             steps{
                   sh(
                       '''
-                      sh 'scripts/init.sh'
+                      bash 'scripts/deleteWorkspace.sh'
                       '''  
                   )
             }
 
-        }
-        stage('Terraform Plan'){
-            steps{
-                  sh(
-                      '''
-                      sh 'scripts/plan.sh'
-                      '''  
-                  )
-            }
-        }
-        stage('Terraform apply'){
-            steps{
-                  sh(
-                      '''
-                      sh 'scripts/apply.sh'
-                      '''  
-                  )
-            }
         }
     }
 }

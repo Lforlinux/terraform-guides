@@ -44,7 +44,8 @@ else
   echo "If you want to use a private TFE server, export/set TFE_ADDR."
 fi
 
-workspace="workspace-from-api"
+workspace=$TFE_WORKSPACE
+delete=$TFE_DELETE
 
 # Set workspace if provided as the second argument
 if [ ! -z $1 ]; then
@@ -55,9 +56,11 @@ else
 fi
 
 # Try to delete the workspace.
+if [[ "$delete" == "yes" ]]; then
 echo "Attempting to delete the workspace"
 delete_workspace_result=$(curl --header "Authorization: Bearer $TFE_TOKEN" --header "Content-Type: application/vnd.api+json" --request DELETE "https://${address}/api/v2/organizations/${organization}/workspaces/${workspace}")
-
+else "Not deleting the WS"
+fi 
 # Get the response from the TFE server
 # Note that successful deletion will give a null response.
 # Only errors result in data.
