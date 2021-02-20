@@ -6,11 +6,11 @@ pipeline {
         string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
     }
     stages {
-        stage('Terraform Install'){
+        stage('load and run work space'){
             steps{
                   sh(
                       '''
-                      sh 'scripts/hello.sh'
+                      sh 'scripts/loadAndRunWorkspace.sh'
         
                       '''  
                   )
