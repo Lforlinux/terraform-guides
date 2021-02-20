@@ -37,6 +37,19 @@ else
   exit
 fi
 
+# Evaluate $TFE_OVERRIDE environment variable
+# If not set, give error and exit
+if [ ! -z "$TFE_OVERRIDE" ]; then
+  override=$TFE_OVERRIDE
+  echo "TFE_OVERRIDE environment variable was set to ${TFE_ORG}."
+  echo "Using overide, ${organization}."
+else
+  echo "You must export/set the TFE_OVERRIDE environment variable."
+  echo "Exiting."
+  exit
+fi
+
+
 # Evaluate $TFE_ADDR environment variable if it exists
 # Otherwise, use "app.terraform.io"
 # You should edit these before running the script.
@@ -95,9 +108,6 @@ if [[ "${workspace}" != "${workspace% *}" ]] ; then
 fi
 
 
-
-override=$TFE_OVERRIDE
-echo $TFE_OVERRIDE
 
 # build compressed tar file from configuration directory
 echo "Tarring configuration directory."
