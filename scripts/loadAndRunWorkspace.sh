@@ -294,7 +294,7 @@ while [ $continue -ne 0 ]; do
 
   # planned means plan finished and no Sentinel policies
   # exist or are applicable to the workspace
-
+set -x 
   # Run is planning - get the plan
   # Note that we use "True" rather than "true" because python converts the
   # boolean "true" in json responses to "True" and "false" to "False"
