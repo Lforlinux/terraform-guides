@@ -11,7 +11,7 @@ pipeline {
             steps{
                   sh(
                       '''
-                      bash './loadAndRunWorkspace.sh {TFE_workspace} app.terraform.io'
+                      './loadAndRunWorkspace.sh {TFE_workspace} app.terraform.io'
         
                       '''  
                   )
