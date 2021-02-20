@@ -4,13 +4,14 @@ pipeline {
     parameters{
         string(name:'TFE_ORG', defaultValue: '', description: 'Terra-org')
         string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
+        string(name:'TFE_WORKSPACE', defaultValue: '', description: 'TFE_TOKEN')
     }
     stages {
         stage('load and run work space'){
             steps{
                   sh(
                       '''
-                      sh '"scripts/loadAndRunWorkspace.sh" "as" "kjd" "yes"'
+                      sh 'scripts/loadAndRunWorkspace.sh'
         
                       '''  
                   )
