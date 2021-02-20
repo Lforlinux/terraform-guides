@@ -10,7 +10,7 @@ pipeline {
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-install.sh'
+                      sh 'scripts/hello.sh'
         
                       '''  
                   )
@@ -21,7 +21,7 @@ pipeline {
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-init.sh'
+                      sh 'scripts/init.sh'
                       '''  
                   )
             }
@@ -31,7 +31,7 @@ pipeline {
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-plan.sh'
+                      sh 'scripts/plan.sh'
                       '''  
                   )
             }
@@ -40,7 +40,7 @@ pipeline {
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-apply.sh'
+                      sh 'scripts/apply.sh'
                       '''  
                   )
             }
