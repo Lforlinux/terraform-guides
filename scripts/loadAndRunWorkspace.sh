@@ -106,6 +106,8 @@ else
   echo "override not set on command line. Will not override."
 fi
 
+override=$TFE_OVERRIDE
+
 # build compressed tar file from configuration directory
 echo "Tarring configuration directory."
 tar -czf ${config_dir}.tar.gz -C ${config_dir} --exclude .git .

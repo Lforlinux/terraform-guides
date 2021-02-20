@@ -2,9 +2,10 @@ pipeline {
     agent { label 'docker-slave'}
 
     parameters{
-        string(name:'TFE_ORG', defaultValue: '', description: 'Terra-org')
+        string(name:'TFE_ORG', defaultValue: '', description: 'tfe organization name')
         string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
-        string(name:'TFE_WORKSPACE', defaultValue: '', description: 'TFE_TOKEN')
+        string(name:'TFE_WORKSPACE', defaultValue: '', description: 'desired workspace name')
+        string(name:'TFE_OVERRIDE', defaultValue: '', description: 'default is no, choose yes to apply')
     }
     stages {
         stage('load and run work space'){
