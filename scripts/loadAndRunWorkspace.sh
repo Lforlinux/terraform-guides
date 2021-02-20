@@ -298,14 +298,14 @@ set -x
   # Run is planning - get the plan
   # Note that we use "True" rather than "true" because python converts the
   # boolean "true" in json responses to "True" and "false" to "False"
-  if [[ "$run_status" == "planned" ]] && [[ "$is_confirmable" == "True" ]] && [[ "$override" == "yes" ]]; then
+  if [[ "$run_status" == "planned" ]] && [[ "$is_confirmable" == "True" ]] && [[ "$override" == "no" ]]; then
     continue=0
     echo "There are " $sentinel_policy_count "policies, but none of them are applicable to this workspace."
     echo "Check the run in Terraform Enterprise UI and apply there if desired."
     save_plan="true"
   # planned means plan finished and no Sentinel policies
   # exist or are applicable to the workspace
-  elif [[ "$run_status" == "planned" ]] && [[ "$is_confirmable" == "True" ]] && [[ "$override" == "no" ]]; then
+  elif [[ "$run_status" == "planned" ]] && [[ "$is_confirmable" == "True" ]] && [[ "$override" == "yes" ]]; then
       continue=0
       echo "There are " $sentinel_policy_count "policies, but none of them are applicable to this workspace."
       echo "Since override was set to \"yes\", we are applying."
