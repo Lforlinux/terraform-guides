@@ -10,7 +10,7 @@ pipeline {
             steps{
                   sh(
                       '''
-                      sh 'scripts/loadAndRunWorkspace.sh'
+                      sh 'loadAndRunWorkspace.sh'
         
                       '''  
                   )
