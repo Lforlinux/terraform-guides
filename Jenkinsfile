@@ -12,7 +12,7 @@ pipeline {
                   sh(
                       '''
                      
-                      sh 'scripts/loadAndRunWorkspace.sh'
+                      sh 'scripts/loadAndRunWorkspace.sh $TFE_ORG'
         
                       '''  
                   )
