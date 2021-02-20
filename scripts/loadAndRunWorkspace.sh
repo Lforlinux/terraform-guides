@@ -41,8 +41,8 @@ fi
 # If not set, give error and exit
 if [ ! -z "$TFE_OVERRIDE" ]; then
   override=$TFE_OVERRIDE
-  echo "TFE_OVERRIDE environment variable was set to ${TFE_ORG}."
-  echo "Using overide, ${organization}."
+  echo "TFE_OVERRIDE environment variable was set to ${TFE_OVERRIDE}."
+  echo "Using overide, ${TFE_OVERRIDE}."
 else
   echo "You must export/set the TFE_OVERRIDE environment variable."
   echo "Exiting."
