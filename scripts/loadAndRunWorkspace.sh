@@ -43,6 +43,7 @@ if [ ! -z "$TFE_OVERRIDE" ]; then
   override=$TFE_OVERRIDE
   echo "TFE_OVERRIDE environment variable was set to ${TFE_OVERRIDE}."
   echo "Using overide, ${TFE_OVERRIDE}."
+  echo "override has set to ${override}"
 else
   echo "You must export/set the TFE_OVERRIDE environment variable."
   echo "Exiting."
