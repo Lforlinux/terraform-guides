@@ -12,7 +12,7 @@ pipeline {
                   sh(
                       '''
                      
-                      sh 'scripts/loadAndRunWorkspace.sh $TFE_ORG'
+                      sh 'export TOKEN=${TFE_TOKEN} && bash ./loadAndRunWorkspace.sh ${TFE_workspace} app.terraform.io'
         
                       '''  
                   )
