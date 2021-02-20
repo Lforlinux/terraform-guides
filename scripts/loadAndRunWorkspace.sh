@@ -94,19 +94,10 @@ if [[ "${workspace}" != "${workspace% *}" ]] ; then
     exit
 fi
 
-# Override soft-mandatory policy checks that fail.
-# Set to "yes" or "no" in second argument passed to script.
-# If not specified, then this is set to "no"
-# If not cloning a git repository, set first argument to ""
-if [ ! -z $3 ]; then
-  override=$3
-  echo "override set to ${override} on command line."
-else
-  override="no"
-  echo "override not set on command line. Will not override."
-fi
+
 
 override=$TFE_OVERRIDE
+echo $TFE_OVERRIDE
 
 # build compressed tar file from configuration directory
 echo "Tarring configuration directory."
