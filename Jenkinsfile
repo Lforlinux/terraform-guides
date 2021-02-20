@@ -12,7 +12,7 @@ pipeline {
                   sh(
                       '''
                      
-                      sh 'scripts/init.sh'
+                      sh 'scripts/loadAndRunWorkspace.sh'
         
                       '''  
                   )
