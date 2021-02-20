@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Hello world!"
-echo $TOKEN
+echo $TFE_TOKEN

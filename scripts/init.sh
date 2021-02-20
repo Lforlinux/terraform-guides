@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Hello init!"
-echo $TOKEN
+echo $TFE_TOKEN

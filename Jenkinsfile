@@ -3,7 +3,7 @@ pipeline {
 
     parameters{
         string(name:'TOKEN', defaultValue: '', description: 'Terra-token')
-        string(name:'token', defaultValue: '', description: 'token')
+        string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
     }
     stages {
         stage('Terraform Install'){

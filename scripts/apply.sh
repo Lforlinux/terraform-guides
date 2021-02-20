@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Hello apply!"
-echo $TOKEN
+echo $TFE_TOKEN
