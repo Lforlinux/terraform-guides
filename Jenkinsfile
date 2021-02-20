@@ -2,7 +2,7 @@ pipeline {
     agent { label 'master'}
 
     parameters{
-        string(name:'TOKEN', defaultValue: '', description: 'Terra-token')
+        string(name:'TFE_ORG', defaultValue: '', description: 'Terra-org')
         string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
     }
     stages {
