@@ -6,46 +6,19 @@ pipeline {
         string(name:'TFE_TOKEN', defaultValue: '', description: 'TFE_TOKEN')
         string(name:'TFE_workspace', defaultValue: '', description: 'TFE_workspace')
     }
-    stages {
-        stage('load and run work space'){
-            steps{
-                  sh(
-                      '''
-                     
-                      sh 'scripts/loadAndRunWorkspace.sh'
+      stages {
         
-                      '''  
-                  )
+	    stage('Deploy using TFE API') {
+            steps {
+                echo 'Deploying using TFE API....'
+                dir('tfe-api') {
+                  sh 'export TOKEN=${TFE_TOKEN} && bash ./loadAndRunWorkspace.sh ${TFE_workspace} app.terraform.io'
+                  sh 'export TOKEN=${TFE_devops_api_token} && bash ./tfe-api-get-runs.sh demo-rkm/${TFE_workspace} app.terraform.io'
+                }
+                // Workspace Cleanup
+                cleanWs()
             }
+        }
 
-        }
-        stage('Terraform init'){
-            steps{
-                  sh(
-                      '''
-                      sh 'scripts/init.sh'
-                      '''  
-                  )
-            }
-
-        }
-        stage('Terraform Plan'){
-            steps{
-                  sh(
-                      '''
-                      sh 'scripts/plan.sh'
-                      '''  
-                  )
-            }
-        }
-        stage('Terraform apply'){
-            steps{
-                  sh(
-                      '''
-                      sh 'scripts/apply.sh'
-                      '''  
-                  )
-            }
-        }
     }
 }
