@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'docker-slave'}
+    agent { label 'master'}
 
     parameters{
         string(name:'TFE_ORG', defaultValue: '', description: 'tfe organization name')
